@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,13 +128,63 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FirstController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Album.cs">
+      <DependentUpon>Movies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Artist.cs">
+      <DependentUpon>Movies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>Movies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>Movies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Genre.cs">
+      <DependentUpon>Movies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Invoice.cs">
+      <DependentUpon>Movies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InvoiceLine.cs">
+      <DependentUpon>Movies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MediaType.cs">
+      <DependentUpon>Movies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Movies.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Movies.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Movies.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Movies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Movies.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Movies.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Playlist.cs">
+      <DependentUpon>Movies.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Track.cs">
+      <DependentUpon>Movies.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -135,8 +193,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Movies.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Movies.Context.cs</LastGenOutput>
+      <DependentUpon>Movies.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Movies.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Movies.edmx</DependentUpon>
+      <LastGenOutput>Movies.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Movies.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Movies.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Movies.edmx.diagram">
+      <DependentUpon>Movies.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -164,8 +239,7 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -179,6 +253,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\First\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

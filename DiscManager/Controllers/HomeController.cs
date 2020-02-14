@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiscManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,16 +14,9 @@ namespace DiscManager.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult SignUp()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Employee sign up.";
 
             return View();
         }

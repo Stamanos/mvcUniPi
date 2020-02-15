@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Disk Manager for UniPi</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -24,6 +24,8 @@
                     <li>@Html.ActionLink("Sign Up", "SignUp", "Home")</li>
 
                     <li>@Html.ActionLink("Albums", "Index", "Albums")</li>
+                    <li>@Html.ActionLink("Tracks", "Index", "Tracks")</li>
+                    <li>@Html.ActionLink("Artists", "Index", "Artists")</li>
                 </ul>
             </div>
         </div>
@@ -32,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Disk Manager for UniPi</p>
         </footer>
     </div>
 

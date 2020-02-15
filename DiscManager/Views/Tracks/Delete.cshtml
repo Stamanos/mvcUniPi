@@ -1,0 +1,88 @@
+﻿@model DiscManager.Models.Track
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Track</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Composer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Composer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Milliseconds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Milliseconds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bytes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bytes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Album.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Album.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MediaType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MediaType.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
